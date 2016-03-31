@@ -22,7 +22,7 @@ module Middleman
 
           def add_signature_to_commit_message(base_message)
             signature = "#{Middleman::Deploy::PACKAGE} #{Middleman::Deploy::VERSION}"
-            time      = "#{Time.now.utc}"
+            time      = "#{Time.now}"
 
             "#{base_message} at #{time} by #{signature}"
           end
