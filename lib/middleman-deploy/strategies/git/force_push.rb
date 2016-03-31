@@ -18,12 +18,12 @@ module Middleman
 
             unless File.exist?('.git')
               `git init`
-              `git remote add origin #{url}`
+              `git remote add #{self.remote} #{url}`
               `git config user.name "#{user_name}"`
               `git config user.email "#{user_email}"`
             else
               # check if the remote repo has changed
-              unless url == `git config --get remote.origin.url`.chop
+              unless url == `git config --get remote.#{self.remote}.url`.chop
                 `git remote rm origin`
                 `git remote add origin #{url}`
               end

@@ -41,7 +41,7 @@ module Middleman
 
             run_or_fail('git add -A')
             run_or_fail("git commit --allow-empty -am \"#{message}\"")
-            run_or_fail("git push #{options} origin #{branch}")
+            run_or_fail("git push #{options} #{self.remote} #{branch}")
           end
 
           private
